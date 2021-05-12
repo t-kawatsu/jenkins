@@ -21,9 +21,9 @@ $ docker-compose run -d
 https://www.jenkins.io/doc/book/installing/docker/#setup-wizard
 
 
-## How TO
+## Examples
 
-### SCM/Jenkinsfile/Docker
+### Jenkinsfile - SCM/Docker
 
 ```
 pipeline {
