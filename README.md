@@ -19,3 +19,38 @@ $ docker-compose run -d
 ## Post-installation setup
 
 https://www.jenkins.io/doc/book/installing/docker/#setup-wizard
+
+
+## How TO
+
+### SCM/Jenkinsfile/Docker
+
+```
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
+            additionalBuildArgs  '--no-cache --network host'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'make build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'make test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'make deploy'
+            }
+        }
+    }
+}
+
+```
