@@ -15,8 +15,7 @@ services:
       - docker-certs:/certs/client:ro
     depends_on:
       - dind
-    networks:
-      - default
+    network_mode: "host"
 
   dind:
     image: docker:dind
@@ -27,14 +26,7 @@ services:
     volumes:
       - data:/var/jenkins_home
       - docker-certs:/certs/client
-    networks:
-      - default
     privileged: true
-
-networks:
-  default:
-    name: jenkins
-    driver: bridge
 
 volumes:
   data:
