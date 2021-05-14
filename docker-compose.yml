@@ -36,7 +36,7 @@ services:
 networks:
   default:
     name: jenkins
-    driver: bridge
+    driver: bridge 
 
 volumes:
   data:
