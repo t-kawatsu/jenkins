@@ -7,7 +7,7 @@ services:
       - 8080:8080
       - 50000:50000
     environment:
-      - DOCKER_HOST=tcp://dind:2376
+      - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
     volumes:
@@ -28,7 +28,9 @@ services:
       - data:/var/jenkins_home
       - docker-certs:/certs/client
     networks:
-      - default
+      default:
+        aliases:
+          - docker
     privileged: true
 
 networks:
@@ -39,3 +41,4 @@ networks:
 volumes:
   data:
   docker-certs:
+
