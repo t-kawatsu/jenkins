@@ -27,6 +27,7 @@ services:
     volumes:
       - data:/var/jenkins_home
       - docker-certs:/certs/client
+    command: --storage-driver=overlay2
     networks:
       default:
         aliases:
